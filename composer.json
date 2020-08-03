@@ -1,0 +1,37 @@
+{
+  "name": "cansozeri/php-soap-client",
+  "type": "library",
+  "description": "A PHP library for interpreting and binding SOAP messages to PSR-7 HTTP messages",
+  "homepage": "https://github.com/cansozeri/php-soap-client",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Canszr\\SoapClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CanszrTest\\SoapClient\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.2",
+    "ext-dom": "*",
+    "ext-xml": "*",
+    "psr/log": "^1.1",
+    "ext-soap": "*"
+  },
+  "require-dev": {
+    "psr/http-message": "^1.0",
+    "php-http/httplug": "^2",
+    "php-http/message-factory": "^1.0",
+    "php-http/discovery": "^1.7",
+    "php-http/message": "^1.8",
+    "php-http/client-common": "^2",
+    "php-http/client-implementation": "^1",
+    "php-http/guzzle6-adapter": "^2.0",
+    "laminas/laminas-diactoros": "^2.3@dev",
+    "phpunit/phpunit": "^8.5"
+  },
+  "prefer-stable": true
+}
