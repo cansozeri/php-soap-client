@@ -45,7 +45,5 @@ abstract class AbstractServiceTest extends AbstractIntegrationTest
             $this->assertGreaterThan(0, strlen($lastInfo->getLastRequestHeaders()));
             $this->assertGreaterThan(0, strlen($lastInfo->getLastResponseHeaders()));
         }
-
-
     }
 }

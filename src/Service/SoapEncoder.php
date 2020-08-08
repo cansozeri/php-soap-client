@@ -20,10 +20,6 @@ class SoapEncoder implements EncoderInterface
     public function encode(string $method, array $arguments): SoapRequest
     {
         try {
-            if ($this->client->_soap_version == 1) {
-                $arguments = array($arguments);
-            }
-
             $this->client->__soapCall($method, $arguments);
             $encoded = $this->client->collectRequest();
         } finally {
