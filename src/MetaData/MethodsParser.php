@@ -47,6 +47,7 @@ class MethodsParser
     }
 
     /**
+     * @param string $methodString
      * @return Parameter[]
      */
     private function parseParameters(string $methodString): array

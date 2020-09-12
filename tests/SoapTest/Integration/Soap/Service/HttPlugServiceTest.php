@@ -4,35 +4,14 @@ declare(strict_types=1);
 
 namespace CanszrTest\SoapClient\SoapTest\Integration\Soap\Service;
 
-use Canszr\SoapClient\Handler\HandlerInterface;
 use Canszr\SoapClient\Handler\HttPlugHandle;
-use Canszr\SoapClient\Service\SoapService;
-use Canszr\SoapClient\Service\SoapServiceInterface;
-use Canszr\SoapClient\SoapDriver;
+use Canszr\SoapClient\SoapEngine;
 use Canszr\SoapClient\SoapOptions;
 use Http\Adapter\Guzzle6\Client;
 
 class HttPlugServiceTest extends AbstractServiceTest
 {
-    /**
-     * @var SoapServiceInterface
-     */
-    private $service;
-
-    /**
-     * @var HandlerInterface
-     */
-    private $handler;
-
-    protected function getService(): SoapServiceInterface
-    {
-        return $this->service;
-    }
-
-    protected function getHandler(): HandlerInterface
-    {
-        return $this->handler;
-    }
+    use SoapEngine;
 
     protected function skipLastHeadersCheck(): bool
     {
@@ -45,20 +24,14 @@ class HttPlugServiceTest extends AbstractServiceTest
      */
     protected function configureForWsdl(string $wsdl)
     {
-        try {
-            $driver = SoapDriver::createFromOptions(
-                SoapOptions::defaults($wsdl, [
-                    'soap_version' => SOAP_1_2,
-                ])->disableWsdlCache()
-            );
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
-        }
+        $options = SoapOptions::defaults($wsdl, [
+            'soap_version' => SOAP_1_2,
+        ])->disableWsdlCache();
 
-        $this->handler = HttPlugHandle::createForClient(
+        $handler = HttPlugHandle::createForClient(
             Client::createWithConfig(['headers' => ['User-Agent' => 'testing/1.0']])
         );
 
-        $this->service = new SoapService($driver, $this->handler);
+        $this->fromOptionsWithHandler($options, $handler);
     }
 }

@@ -35,7 +35,7 @@ abstract class AbstractServiceTest extends AbstractIntegrationTest
             $this->assertEquals(0, strlen($lastInfo->getLastResponseHeaders()));
         }
 
-        $result = $this->getService()->request('Multiply', [['intA' => 2, 'intB' => 2]]);
+        $this->getService()->request('Multiply', [['intA' => 2, 'intB' => 2]]);
 
         $lastInfo = $handler->collectLastRequestInfo();
         $this->assertGreaterThan(0, strlen($lastInfo->getLastRequest()));

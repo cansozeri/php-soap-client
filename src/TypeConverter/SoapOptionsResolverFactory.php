@@ -39,7 +39,7 @@ class SoapOptionsResolverFactory
         $resolver->setAllowedTypes('soap_version', 'int');
         $resolver->setAllowedValues('soap_version', [SOAP_1_1, SOAP_1_2]);
 
-        // HTTP AUthentication
+        // HTTP Authentication
         $resolver->setDefined(['login', 'password', 'authentication']);
         $resolver->setAllowedTypes('login', ['string']);
         $resolver->setAllowedTypes('password', ['string']);
@@ -90,7 +90,7 @@ class SoapOptionsResolverFactory
         $resolver->setAllowedTypes('connection_timeout', ['int']);
         $resolver->setAllowedTypes('default_socket_timeout', ['int']);
 
-        // Typemaps
+        // TypeMaps
         $resolver->setDefault('typemap', new TypeConverterCollection());
         $resolver->setAllowedTypes('typemap', [TypeConverterCollection::class, 'array']);
 

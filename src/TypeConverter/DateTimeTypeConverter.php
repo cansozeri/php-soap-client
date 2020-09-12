@@ -33,6 +33,7 @@ class DateTimeTypeConverter implements TypeConverterInterface
 
     /**
      * {@inheritdoc}
+     * @throws \Exception
      */
     public function convertXmlToPhp(string $data)
     {

@@ -4,6 +4,7 @@ namespace Canszr\SoapClient\Service;
 
 use Canszr\SoapClient\Handler\HandlerInterface;
 use Canszr\SoapClient\HttpBinding\LastRequestInfo;
+use Canszr\SoapClient\MetaData\MetadataInterface;
 
 class SoapService implements SoapServiceInterface
 {
@@ -23,6 +24,11 @@ class SoapService implements SoapServiceInterface
     ) {
         $this->driver = $driver;
         $this->handler = $handler;
+    }
+
+    public function getMetadata(): MetadataInterface
+    {
+        return $this->driver->getMetadata();
     }
 
     public function request(string $method, array $arguments)

@@ -31,7 +31,8 @@
     "php-http/client-implementation": "^1",
     "php-http/guzzle6-adapter": "^2.0",
     "laminas/laminas-diactoros": "^2.3@dev",
-    "phpunit/phpunit": "^8.5"
+    "phpunit/phpunit": "^8.5",
+    "php-http/mock-client": "^1.4"
   },
   "prefer-stable": true
 }

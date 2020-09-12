@@ -2,8 +2,6 @@
 
 namespace Canszr\SoapClient\Exception;
 
-use Throwable;
-
 /**
  * Class InvalidArgumentException
  *

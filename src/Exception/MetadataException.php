@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Canszr\SoapClient\Exception;
-
 
 class MetadataException extends RuntimeException
 {
