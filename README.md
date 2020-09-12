@@ -135,5 +135,5 @@ use Canszr\SoapClient\SoapOptions;
 
 use SoapEngine;
 
-$service = $this->fromOptions::fromOptions(ExtSoapOptions::defaults($wsdl, []));
+$service = $this->fromOptions(ExtSoapOptions::defaults($wsdl, []));
 ```
