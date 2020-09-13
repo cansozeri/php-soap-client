@@ -120,7 +120,7 @@ $service = $this->fromOptionsWithHandler($options, $handler);
 ❗️ Make sure ext-soap is loaded.
 ```
 
-The ExtSoapServerHandle is used by default and works with the built-in `__doRequest()` method.
+The SoapClientHandle is used by default and works with the built-in `__doRequest()` method.
 This Handle is not configurable and can be used for soap implementations which do not use extensions.
 It is activated by default to get you going as quick as possible.
 
@@ -135,5 +135,5 @@ use Canszr\SoapClient\SoapOptions;
 
 use SoapEngine;
 
-$service = $this->fromOptions(ExtSoapOptions::defaults($wsdl, []));
+$service = $this->fromOptions(SoapOptions::defaults($wsdl, []));
 ```
