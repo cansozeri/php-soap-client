@@ -16,10 +16,12 @@
   },
   "require": {
     "php": "^7.2",
-    "ext-dom": "*",
-    "ext-xml": "*",
     "psr/log": "^1.1",
-    "ext-soap": "*"
+    "symfony/event-dispatcher": "~5.0",
+    "ext-soap": "*",
+    "ext-json": "*",
+    "ext-dom": "*",
+    "ext-xml": "*"
   },
   "require-dev": {
     "psr/http-message": "^1.0",

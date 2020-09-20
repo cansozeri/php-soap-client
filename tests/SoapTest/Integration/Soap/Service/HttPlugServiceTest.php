@@ -8,6 +8,7 @@ use Canszr\SoapClient\Handler\HttPlugHandle;
 use Canszr\SoapClient\SoapEngine;
 use Canszr\SoapClient\SoapOptions;
 use Http\Adapter\Guzzle6\Client;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class HttPlugServiceTest extends AbstractServiceTest
 {
@@ -32,6 +33,8 @@ class HttPlugServiceTest extends AbstractServiceTest
             Client::createWithConfig(['headers' => ['User-Agent' => 'testing/1.0']])
         );
 
-        $this->fromOptionsWithHandler($options, $handler);
+        $eventDispatcher = new EventDispatcher();
+
+        $this->fromOptionsWithHandler($options, $handler, $eventDispatcher);
     }
 }

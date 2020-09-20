@@ -6,6 +6,7 @@ namespace CanszrTest\SoapClient\SoapTest\Integration\Soap\Service;
 
 use Canszr\SoapClient\SoapEngine;
 use Canszr\SoapClient\SoapOptions;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class SoapClientServiceTest extends AbstractServiceTest
 {
@@ -26,6 +27,8 @@ class SoapClientServiceTest extends AbstractServiceTest
             'soap_version' => SOAP_1_2,
         ])->disableWsdlCache();
 
-        $this->fromOptions($options);
+        $eventDispatcher = new EventDispatcher();
+
+        $this->fromOptions($options, $eventDispatcher);
     }
 }
