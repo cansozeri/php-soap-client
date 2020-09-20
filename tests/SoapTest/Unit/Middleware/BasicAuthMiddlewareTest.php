@@ -7,7 +7,7 @@ use Canszr\SoapClient\Middleware\MiddlewareInterface;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Http\Client\Common\PluginClient;
-use Http\Message\MessageFactory\GuzzleMessageFactory;
+use Http\Discovery\Psr17FactoryDiscovery;
 use PHPUnit\Framework\TestCase;
 use Http\Mock\Client;
 use Psr\Http\Client\ClientExceptionInterface;
@@ -35,7 +35,7 @@ class BasicAuthMiddlewareTest extends TestCase
     protected function setUp(): void
     {
         $this->middleware = new BasicAuthMiddleware('username', 'password');
-        $this->mockClient = new Client(new GuzzleMessageFactory());
+        $this->mockClient = new Client(Psr17FactoryDiscovery::findResponseFactory());
         $this->client = new PluginClient($this->mockClient, [$this->middleware]);
     }
 
