@@ -1,5 +1,12 @@
 # General purpose PHP SOAP-client
 This package aims to help you with interpreting and binding SOAP 1.1 and SOAP 1.2 messages to PSR-7 HTTP messages.
+
+<p align="center">
+<a href="https://github.com/cansozeri/php-soap-client/actions"><img src="https://github.com/cansozeri/php-soap-client/workflows/tests/badge.svg"></a>
+<a href="https://packagist.org/packages/cansozeri/php-soap-client"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/cansozeri/php-soap-client"></a>
+<a href="https://packagist.org/packages/cansozeri/php-soap-client"><img alt="GitHub" src="https://img.shields.io/github/license/cansozeri/php-soap-client"></a>
+</p>
+
 ## Installation
 ```sh
 $ composer require cansozeri/php-soap-client
