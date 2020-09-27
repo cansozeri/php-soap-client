@@ -23,9 +23,7 @@ class SoapClientServiceTest extends AbstractServiceTest
      */
     protected function configureForWsdl(string $wsdl)
     {
-        $options = SoapOptions::defaults($wsdl, [
-            'soap_version' => SOAP_1_2,
-        ])->disableWsdlCache();
+        $options = SoapOptions::defaults($wsdl)->disableWsdlCache();
 
         $eventDispatcher = new EventDispatcher();
 
