@@ -3,16 +3,13 @@
 namespace Canszr\SoapClient\Middleware;
 
 use Http\Promise\Promise;
-use Http\Client\Exception;
 use Canszr\SoapClient\Xml\SoapXml;
 use Canszr\SoapClient\SoapHeaderDto;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Canszr\SoapClient\Exception\MiddlewareException;
-use Canszr\SoapClient\Middleware\MiddlewareInterface;
+use Canszr\SoapClient\Middleware\Middleware;
 
 
-class AddSoapHeaderMiddleware implements MiddlewareInterface
+class AddSoapHeaderMiddleware extends Middleware
 {
     /**
      * @var SoapHeaderDto
@@ -27,19 +24,6 @@ class AddSoapHeaderMiddleware implements MiddlewareInterface
     public function getName(): string
     {
         return 'add_header_middleware';
-    }
-
-    public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
-    {
-        return $this->beforeRequest($next, $request)
-            ->then(
-                (function (ResponseInterface $response) {
-                    return $this->afterResponse($response);
-                })->bindTo($this),
-                (function (Exception $exception) {
-                    $this->onError($exception);
-                })->bindTo($this)
-            );
     }
 
     public function beforeRequest(callable $handler, RequestInterface $request): Promise
@@ -72,13 +56,4 @@ class AddSoapHeaderMiddleware implements MiddlewareInterface
         return $handler($request);
     }
 
-    public function afterResponse(ResponseInterface $response): ResponseInterface
-    {
-        return $response;
-    }
-
-    public function onError(Exception $exception)
-    {
-        throw MiddlewareException::fromHttPlugException($exception);
-    }
 }
